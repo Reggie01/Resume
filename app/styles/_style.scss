@@ -1,19 +1,9 @@
-﻿/* Fonts */
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 
-// Font Variables
-$montserrat:  Montserrat, "Helvetica Neue", Helvectica, Arial, sans-serif;
-$open-sans:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$droid-serif: Droid Serif, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import '../partials/_variables.scss'; // colors, fonts etc...
 
-// Color Variables
-$turqoise: #13B0A5;
-$off-gray: rgb(71, 77, 93);
-$light-gray: #84868d;
-$section-bg: rgb(247, 247, 247);
+@import '../partials/mixins'; // custom mixins
 
+@import '../partials/layout'; // responsive grid and media queries
 
 /* TABLE OF CONTENTS
 
@@ -44,13 +34,14 @@ $section-bg: rgb(247, 247, 247);
 -------------------------------------------------*/
 body{
     overflow-x: hidden;
-    font-family: $open-sans;
+    font-family: $primary-font ;
+    color: $main-text;
 }
 
 
 header{
     text-align: center;
-    color: #fff;
+    color: $color-3;
     background-attachment: scroll;
     background-position: center center;
     background-image: url(../images/header-bg.jpg);
@@ -62,10 +53,10 @@ header{
 }
 
 hgroup{
+  font-family: $header-font;
   padding-bottom: 75px;
-  h1
+  h2
   {
-    font-family: $montserrat;
     font-weight: 700px;
     border-bottom: 6px solid #13B0A5;
     display: inline-block;
@@ -74,7 +65,7 @@ hgroup{
 
   .header-description
   {
-    font-family: $droid-serif;
+    font-family: $secondary-font;
     font-weight: 400px;
     font-style: italic;
   }
@@ -95,7 +86,7 @@ section
 
 /* 3. Navigation */
 .navbar-default {
-    color: #fff;
+    color: $color-3;
 }
 
 .navbar-default container
@@ -113,7 +104,7 @@ section
 .navbar-default .navbar-brand
 {
     color: #4d4d50;
-    font-family: $montserrat;
+    font-family: $header-font;
 }
 
 .navbar-default .navbar-toggle {
@@ -128,7 +119,7 @@ section
 
 .navbar-default .navbar-toggle .icon-bar
 {
-    background-color: #fff;
+    background-color: $color-3;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -149,7 +140,7 @@ section
 
 .navbar-default .nav li a {
         text-transform: uppercase;
-        font-family: $montserrat;
+        font-family: $header-font;
         font-weight: 400;
         letter-spacing: 1px;
         color: #4d4d50;
@@ -176,8 +167,8 @@ section
 .description-about{
     width: 200px;
     padding: 20px;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid $color-3;
+    color: $color-3;
     text-transform: capitalize;
     font-size: 15px;
     font-family: Montserrat, "Helvectica Neue", Helvetica, Arial, sans-serif;
@@ -203,7 +194,7 @@ section
 }
 
 .intro-heading {
-    font-family: $montserrat;
+    font-family: $header-font;
     font-weight: 700;
     font-size: 50px;
     text-transform: capitalize;
@@ -220,27 +211,12 @@ section
 #about
 {
     text-align: center;
-    // Todo: fixing section padding
-    /* padding-top: 100px;
-    padding-bottom: 150px; */
-}
 
-#about hgroup
-{
-    padding-bottom: 75px;
-}
-
-#about hgroup h1 {
-    font-family: Open Sans, "Helvectica Neue", Helvectica, Arial, sans-serif;
-    font-weight: 700px;
-    border-bottom: 6px solid #13B0A5;
-    display: inline-block;
-    text-transform: uppercase;
 }
 
 .about-description
 {
-   font-family: $droid-serif;
+   font-family: $secondary-font;
    font-weight: 400px;
    font-style: italic;
 }
@@ -255,18 +231,17 @@ section
 {
     text-align: left;
     text-transform: uppercase;
-    color: #4d4d50;
-    font-family: $montserrat;
+    color: $header-color;
     font-size: 1.5em;
     font-weight: 700;
 }
 
-.job-title
+.about-title
 {
     text-align: left;
     text-transform: uppercase;
     color: #4d4d50;
-    font-family:$montserrat;
+    font-family:$header-font;
     font-size: 1.2em;
     font-weight: 700;
     padding-bottom: 10px;
@@ -286,8 +261,8 @@ section
 #about button
 {
    background-color: #13B0A5;
-   color: #fff;
-   font-family:$montserrat;
+   color: $color-3;
+   font-family:$header-font;
    font-weight: 700;
    padding: 10px;
    border: 0px;
@@ -297,7 +272,7 @@ section
 /* Status */
 #counter {
     background-image: url(../images/bg-portfolio.jpg);
-    color: #fff;
+    color: $color-3;
     // Todo:fixing section padding
     /* padding-top: 90px;
     padding-bottom: 90px; */
@@ -321,29 +296,21 @@ section
 
     text-align: center;
     // Todo: fixing section padding
-    /* padding-top: 100px;
-    padding-bottom: 100px; */
+
     background-color: $section-bg;
 
     .skills-header h1{
-        font-family:$montserrat;
         font-weight: 700px;
         border-bottom: 6px solid #13B0A5;
         display: inline-block;
         text-transform: uppercase;
     }
 
-    hgroup {
-        padding-bottom: 75px;
-    }
-
-
     article{
         .skills-title{
             text-transform: uppercase;
             font-weight: bold;
             color: $off-gray;
-            font-family: $montserrat;
         }
 
         .skills-chart {
@@ -366,6 +333,11 @@ section
 #services
 {
   text-align: center;
+
+  h2
+  {
+    color: $header-color;
+  }
 }
 
 
@@ -383,6 +355,24 @@ section
   {
     border-bottom: none;
 
+    hgroup
+    {
+      color: #333;
+      padding-bottom: 50px;
+
+      h2
+      {
+
+        font-weight: bold;
+        border-bottom: 6px solid #13B0A5;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2.5em;
+
+
+      }
+    }
 
     span
     {
@@ -397,8 +387,14 @@ section
     position: initial;
     padding: initial;
 
-    .modal-date
+    .modal-body-content
     {
+      color: $portfolio-font;
+    }
+
+    .modal-body-date
+    {
+      color: $portfolio-font;
       p
       {
         margin: 0px;
@@ -406,16 +402,18 @@ section
 
     }
 
-    .modal-client
+    .modal-body-client
     {
+      color: $portfolio-font;
       p
       {
         margin: 0px;
       }
     }
 
-    .modal-category
+    .modal-body-category
     {
+      color: $portfolio-font;
       p
       {
         margin: 0px;
@@ -430,11 +428,11 @@ section
     {
       i
       {
-          color: #fff;
+          color: $color-3;
       }
       font-size: 1.5em;
       background-color: $turqoise;
-      color: #fff;
+      color: $color-3;
     }
     text-align: inherit;
     border-top: none;
@@ -457,7 +455,59 @@ section
 
 }
 
+/* 9. Resume */
 
+#resume
+{
+  text-align: center;
+  background-color: $color-3;
+
+  h2
+  {
+    color: $header-color;
+  }
+
+  .resume-header-description
+  {
+    font-family: $secondary-font;
+    font-weight: 400px;
+    font-style: italic;
+  }
+
+  .job-date
+  {
+      ul
+      {
+        list-style: none;
+      }
+  }
+
+  .job-company
+  {
+    color: $job-company-color;
+  }
+
+  .job-title
+  {
+    color: $turqoise;
+    span
+    {
+      display: block;
+    }
+  }
+
+  .job-description
+  {
+    ul
+    {
+      list-style: none;
+      li
+      {
+
+      }
+    }
+  }
+}
 
 /* 15. Media Queries */
 
@@ -474,12 +524,12 @@ section
     }
 
     .navbar-default .nav li a {
-        color: #fff;
+        color: $color-3;
     }
 
     .navbar-default .navbar-brand{
         font-size: 2em;
-        color: #fff;
+        color: $color-3;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
