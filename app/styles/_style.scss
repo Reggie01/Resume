@@ -1,10 +1,9 @@
-
-@import '../partials/_variables.scss'; // colors, fonts etc...
-
-@import '../partials/mixins'; // custom mixins
-
-@import '../partials/layout'; // responsive grid and media queries
-
+@import '../partials/_variables.scss';
+// colors, fonts etc...
+@import '../partials/mixins';
+// custom mixins
+@import '../partials/layout';
+// responsive grid and media queries
 /* TABLE OF CONTENTS
 
     1. Preloader
@@ -23,516 +22,404 @@
     14. Portfolio Modal
     15. Media Queries
 */
-
-
-
 /* 1. Preloader
 -------------------------------------------------*/
-
-
 /* 2. Basic Document Styles
 -------------------------------------------------*/
-body{
-    overflow-x: hidden;
-    font-family: $primary-font ;
-    color: $main-text;
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-
-header{
-    text-align: center;
-    color: $color-3;
-    background-attachment: scroll;
-    background-position: center center;
-    background-image: url(../images/header-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+body {
+  overflow-x: hidden;
+  font-family: $primary-font;
+  color: $main-text;
 }
-
-hgroup{
+header {
+  text-align: center;
+  color: $white-secondary;
+  background-attachment: scroll;
+  background-position: center center;
+  background-image: url("../images/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+hgroup {
   font-family: $header-font;
   padding-bottom: 75px;
-  h2
-  {
+  h2 {
     font-weight: 700px;
-    border-bottom: 6px solid #13B0A5;
+    border-bottom: 6px solid $color-a3;
     display: inline-block;
     text-transform: uppercase;
   }
-
-  .header-description
-  {
+  .header-description {
     font-family: $secondary-font;
     font-weight: 400px;
     font-style: italic;
   }
-
 }
-
-i
-{
-  color: $turqoise;
+i {
+  color: $secondary-text;
 }
-
-section
-{
+section {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-
-
 /* 3. Navigation */
-.navbar-default {
-    color: $color-3;
+.navbar-default container {
+  padding-right: 0;
+  padding-left: 0;
 }
-
-.navbar-default container
-{
-    padding-right: 0px;
-    padding-left: 0px;
+.nabar-default .container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
 }
-
-.nabar-default .container-fluid
-{
-    padding-right: 15px;
-    padding-left: 15px;
+.navbar-default .navbar-brand {
+  color: $white-secondary;
+  font-family: $header-font;
 }
-
-.navbar-default .navbar-brand
-{
-    color: #4d4d50;
-    font-family: $header-font;
-}
-
 .navbar-default .navbar-toggle {
-    border-color: #13B0A5;
-    background-color: #13B0A5;
+  // Todo: remove
+  // border-color: #13B0A5;
+  // background-color: #13B0A5;
+  background-color: $color-1;
+  border-color: transparent;
 }
-
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
-{
-    background-color: #13B0A5;
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background-color: $color-1;
 }
-
-.navbar-default .navbar-toggle .icon-bar
-{
-    background-color: $color-3;
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: $white-secondary;
 }
-
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
-.navbar-default .navbar-brand.active
-{
-    color: #13B0A5;
+.navbar-default .navbar-brand.active {
+  color: $color-a1;
 }
-
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:active,
-.navbar-default .navbar-nav.active
-{
-    color: #13B0A5;
+.navbar-default .navbar-nav.active {
+  color: $color-a1;
 }
-
 .navbar-default .nav li a {
-        text-transform: uppercase;
-        font-family: $header-font;
-        font-weight: 400;
-        letter-spacing: 1px;
-        color: #4d4d50;
-    }
-
-.header-shrink {
-
+  text-transform: uppercase;
+  font-family: $header-font;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: $white-secondary;
+}
+.navbar-default {
+  background-color: $color-1;
+  border-color: transparent;
+  color: $white-text;
 }
 
+.navbar-collaspe {
+  border-color: transparent;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: transparent;
+}
+
+nav {
+  background-color: $color-1;
+  .header-shrink {
+    background-color: $color-1;
+  }
+  .collasped {
+    background-color: $color-1;
+  }
+
+}
 .navbar-fixed-top.header-shrink .navbar-brand {
 
 }
-
 .navbar-fixed-top.header-shrink {
 
 }
-
 .navbar-fixed-top.header-shrink .nav li a {
-    color: #4d4d50;
+  color: $white-secondary;
 }
-
-
 /* 4. Header */
-.description-about{
-    width: 200px;
-    padding: 20px;
-    border: 1px solid $color-3;
-    color: $color-3;
-    text-transform: capitalize;
-    font-size: 15px;
-    font-family: Montserrat, "Helvectica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400px;
-    letter-spacing: 1px;
+.description-about {
+  width: 200px;
+  padding: 20px;
+  border: 1px solid $white-secondary;
+  color: $white-secondary;
+  text-transform: capitalize;
+  font-size: 15px;
+  font-family: Montserrat, "Helvectica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400px;
+  letter-spacing: 1px;
 }
-
 .intro-text a:hover,
 .intro-text a:focus,
-.intro-text a:active
- {
-    color: #13B0A5;
-    text-decoration: none;
-    border-color: #13B0A5;
+.intro-text a:active {
+  color: $color-a2;
+  text-decoration: none;
+  border-color: $color-a2;
 }
-
 .intro-description {
-        font-family:Droid Serif, "Helvetica Neue", Helvectica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 25px;
-        font-style: Italic;
-        margin-bottom: 50px;
+  font-family: Droid Serif, "Helvetica Neue", Helvectica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  font-style: Italic;
+  margin-bottom: 50px;
+  color: $white-text;
 }
-
 .intro-heading {
-    font-family: $header-font;
-    font-weight: 700;
-    font-size: 50px;
-    text-transform: capitalize;
-    line-height: 50px;
+  font-family: $header-font;
+  font-weight: 700;
+  font-size: 50px;
+  text-transform: capitalize;
+  line-height: 50px;
+  color: $white-text;
 }
-
 .intro-text {
-
-    padding-top: 100px;
-    padding-bottom: 50px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
-
 /* 5. About */
-#about
-{
-    text-align: center;
-
+#about {
+  text-align: center;
 }
-
-.about-description
-{
-   font-family: $secondary-font;
-   font-weight: 400px;
-   font-style: italic;
+.about-description {
+  font-family: $secondary-font;
+  font-weight: 400px;
+  font-style: italic;
 }
-
-.img-circle
-{
-    margin-right: auto;
-    margin-left: auto;
+.img-circle {
+  margin-right: auto;
+  margin-left: auto;
 }
-
-#about h2
-{
-    text-align: left;
-    text-transform: uppercase;
-    color: $header-color;
-    font-size: 1.5em;
-    font-weight: 700;
+#about h2 {
+  text-align: left;
+  text-transform: uppercase;
+  color: $header-color;
+  font-size: 1.5em;
+  font-weight: 700;
 }
-
-.about-title
-{
-    text-align: left;
-    text-transform: uppercase;
-    color: #4d4d50;
-    font-family:$header-font;
-    font-size: 1.2em;
-    font-weight: 700;
-    padding-bottom: 10px;
+.about-title {
+  text-align: left;
+  text-transform: uppercase;
+  color: $secondary-text;
+  font-family: $header-font;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding-bottom: 10px;
 }
-
-#about p
-{
-    text-align: left;
-    line-height: 1.5em;
+#about p {
+  text-align: left;
+  line-height: 1.5em;
 }
-
-.about-portrait
-{
-    padding-bottom: 10px;
+.about-portrait {
+  padding-bottom: 10px;
 }
-
-#about button
-{
-   background-color: #13B0A5;
-   color: $color-3;
-   font-family:$header-font;
-   font-weight: 700;
-   padding: 10px;
-   border: 0px;
-   border-radius: 7pt;
+#about button {
+  background-color: $color-a3;
+  color: $white-secondary;
+  font-family: $header-font;
+  font-weight: 700;
+  padding: 10px;
+  border: 0;
+  border-radius: 7pt;
 }
-
 /* Status */
 #counter {
-    background-image: url(../images/bg-portfolio.jpg);
-    color: $color-3;
-    // Todo:fixing section padding
-    /* padding-top: 90px;
+  background-image: url("../images/bg-portfolio.jpg");
+  color: $white-text;
+  // Todo:fixing section padding
+  /* padding-top: 90px;
     padding-bottom: 90px; */
-    text-align: center;
-    line-height: 2.0em;
-}
-
-.counter-container
-{
-    padding-bottom: 20px;
-}
-
-#counter i
-{
-    color: $turqoise;
-}
-
-/* 6. Skills */
-
-#skills {
-
-    text-align: center;
-    // Todo: fixing section padding
-
-    background-color: $section-bg;
-
-    .skills-header h1{
-        font-weight: 700px;
-        border-bottom: 6px solid #13B0A5;
-        display: inline-block;
-        text-transform: uppercase;
-    }
-
-    article{
-        .skills-title{
-            text-transform: uppercase;
-            font-weight: bold;
-            color: $off-gray;
-        }
-
-        .skills-chart {
-            background-image: url(../images/skills.png);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 100% 100%;
-        }
-
-        .skills-description
-        {
-            font-size: .8em;
-            color: $light-gray;
-        }
-    }
-
-}
-
-/* 7. Services */
-#services
-{
   text-align: center;
-
-  h2
-  {
-    color: $header-color;
+  line-height: 2.0em;
+}
+.counter-container {
+  padding-bottom: 20px;
+}
+#counter i {
+  color: $color-a3;
+}
+/* 6. Skills */
+#skills {
+  text-align: center;
+  // Todo: fixing section padding
+  background-color: $color-4;
+  .skills-header h1 {
+    font-weight: 700px;
+    border-bottom: 6px solid #13b0a5;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  article {
+    .skills-title {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $main-text;
+    }
+    .skills-chart {
+      background-image: url("../images/skills.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+    }
+    .skills-description {
+      font-size: 0.8em;
+      color: $main-text;
+    }
   }
 }
+/* 7. Services */
+#services {
+  text-align: center;
+  h2 {
+    color: $secondary-text;
+  }
 
-
+  i
+  {
+    color: $color-a2;
+  }
+}
 /* 8. Portfolio */
-
-#portfolio
-{
-  background-color: $section-bg;
+#portfolio {
+  background-color: $color-4;
   text-align: center;
 }
+/* 9. Resume */
+#resume {
+  text-align: center;
+  background-color: $white-text;
+  h2 {
+    color: $secondary-text;
+  }
+  .resume-header-description {
+    font-family: $secondary-font;
+    font-weight: 400px;
+    font-style: italic;
+  }
+  .job-date {
+    ul {
+      list-style: none;
+    }
+  }
+  .job-company {
+    color: $secondary-text;
+  }
+  .job-title {
+    color: $color-a2;
+    span {
+      display: block;
+    }
+  }
+  .job-description {
+    ul {
+      list-style: none;
+      li {
 
-.modal
-{
-  .modal-header
-  {
+      }
+    }
+  }
+}
+/* 14. Modal */
+.modal {
+  text-align: center;
+  .modal-header {
     border-bottom: none;
-
-    hgroup
-    {
-      color: #333;
+    .modal-content {
+      text-align: center;
+    }
+    hgroup {
+      color: $secondary-text;
       padding-bottom: 50px;
-
-      h2
-      {
-
+      h2 {
         font-weight: bold;
-        border-bottom: 6px solid #13B0A5;
+        border-bottom: 6px solid $color-a3;
         display: inline-block;
         text-transform: uppercase;
         font-weight: bold;
         font-size: 2.5em;
-
-
       }
     }
-
-    span
-    {
-      color: black;
+    span {
+      color: $color-a2;
       font-size: 4em;
       font-weight: 400;
     }
   }
-
-  .modal-body
-  {
+  .modal-body {
     position: initial;
     padding: initial;
-
-    .modal-body-content
-    {
-      color: $portfolio-font;
+    .modal-body-content {
+      color: $main-text;
     }
-
-    .modal-body-date
-    {
-      color: $portfolio-font;
-      p
-      {
-        margin: 0px;
-      }
-
-    }
-
-    .modal-body-client
-    {
-      color: $portfolio-font;
-      p
-      {
-        margin: 0px;
+    .modal-body-date {
+      color: $main-text;
+      p {
+        margin: 0;
       }
     }
-
-    .modal-body-category
-    {
-      color: $portfolio-font;
-      p
-      {
-        margin: 0px;
+    .modal-body-client {
+      color: $main-text;
+      p {
+        margin: 0;
+      }
+    }
+    .modal-body-category {
+      color: $main-text;
+      p {
+        margin: 0;
       }
     }
   }
-
-  .modal-footer
-  {
-
-    button
-    {
-      i
-      {
-          color: $color-3;
+  .modal-footer {
+    button {
+      i {
+        color: $secondary-text;
       }
       font-size: 1.5em;
-      background-color: $turqoise;
-      color: $color-3;
+      background-color: $color-a2;
+      color: $secondary-text;
     }
     text-align: inherit;
     border-top: none;
   }
-
-  .modal-dialog
-  {
-    margin: 0px;
+  .modal-dialog {
+    margin: 0;
   }
-
-  img
-  {
+  img {
     padding-bottom: 20px;
   }
-
-  span
-  {
-    color: $turqoise;
-  }
-
-}
-
-/* 9. Resume */
-
-#resume
-{
-  text-align: center;
-  background-color: $color-3;
-
-  h2
-  {
-    color: $header-color;
-  }
-
-  .resume-header-description
-  {
-    font-family: $secondary-font;
-    font-weight: 400px;
-    font-style: italic;
-  }
-
-  .job-date
-  {
-      ul
-      {
-        list-style: none;
-      }
-  }
-
-  .job-company
-  {
-    color: $job-company-color;
-  }
-
-  .job-title
-  {
-    color: $turqoise;
-    span
-    {
-      display: block;
-    }
-  }
-
-  .job-description
-  {
-    ul
-    {
-      list-style: none;
-      li
-      {
-
-      }
-    }
+  span {
+    color: $color-a2;
   }
 }
-
 /* 15. Media Queries */
-
 /* Todo: Add media queries for header-shrink?? */
-
 @media(min-width: 768px) {
-    .navbar-default {
-        padding: 25px;
-        border: 0px;
-        background-color: transparent;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
-    }
-
-    .navbar-default .nav li a {
-        color: $color-3;
-    }
-
-    .navbar-default .navbar-brand{
-        font-size: 2em;
-        color: $color-3;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
-    }
-
+  .navbar-default {
+    padding: 25px;
+    border: 0;
+    background-color: transparent;
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+  }
+  .navbar-default .nav li a {
+    color: $color-a2;
+  }
+  .navbar-default .navbar-brand {
+    font-size: 2em;
+    color: $color-a2;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
 }

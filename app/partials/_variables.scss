@@ -1,16 +1,30 @@
 // colors
 
-$main-text: #7f8c97; // main text
+/* Black Text */
+$main-text: rgba(0,0,0,0.87); // main text
+$secondary-text: rgba(0,0,0,0.54); // secondary text
+$dividers: rgba(0, 0, 0, 0.12); // dividers
 $link: #acb7c0; // anchor tags
 $background: #e9f0f5; // body background color
 
+/* White Text */
+$white-text: #FFFFFF; // main text
+$white-secondary: rgba(255, 255, 255, 0.70);
+$white-dividers: rgba(255, 255, 255, 0.12);
+
 $header-color: #4d4d50;
 
-$color-1: #303e49; // blue dark
-$color-2: #c03b44; // red
+/* primary color */
+$color-1: #2196F3; // blue 500
+$color-2: #1976D2; // blue 700
 $color-3: #ffffff; // white
-$color-4: #75ce66; // green
-$color-5: #f0ca45; // yellow
+$color-4: #E3F2FD; // blue 100
+
+/* accent color */
+$color-a1: #FFD180; // orange a100
+$color-a2: #FFAB40; // orange a200
+$color-a3: #FF9100; // orange a400
+
 
 /* Google Fonts */
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
@@ -21,12 +35,3 @@ $color-5: #f0ca45; // yellow
 $primary-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $secondary-font: Droid Serif, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $header-font: Montserrat, "Helvetica Neue", Helvectica, Arial, sans-serif;
-
-
-// Color Variables
-$turqoise: #13B0A5;
-$off-gray: rgb(71, 77, 93);
-$light-gray: #84868d;
-$section-bg: rgb(247, 247, 247);
-$portfolio-font: rgb(51, 51, 51);
-$job-company-color: #05635D;
