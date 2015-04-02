@@ -27,11 +27,12 @@ $('#myModal').on('shown.bs.modal', function () {
         var sy = scrollY();
         if ( sy >= changeHeaderOn ) {
             if(header.className.search("header-shrink") == -1){
-                header.className = header.className + " header-shrink";
+                header.className = header.className + "header-shrink";
             }
         }
         else
         {
+            // Todo: remove console.log after testing
             console.log(header.className);
             header.className = header.className.replace("header-shrink", "");
         }
@@ -47,3 +48,25 @@ $('#myModal').on('shown.bs.modal', function () {
     init();
 
 })();
+
+// http://codyhouse.co/gem/vertical-timeline/ Guideline for building timeline
+
+jQuery(document).ready(function($){
+  var $timeline_block = $('.cd-timeline-block');
+
+  //hide timeline blocks which are outside the viewport
+  $timeline_block.each(function(){
+    if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+      $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+    }
+  });
+
+  //on scolling, show/animate timeline blocks when enter the viewport
+  $(window).on('scroll', function(){
+    $timeline_block.each(function(){
+      if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+        $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+      }
+    });
+  });
+});

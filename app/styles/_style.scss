@@ -1,8 +1,8 @@
 @import '../partials/_variables.scss';
 // colors, fonts etc...
-@import '../partials/mixins';
+@import '../partials/_mixins';
 // custom mixins
-@import '../partials/layout';
+@import '../partials/_layout';
 // responsive grid and media queries
 /* TABLE OF CONTENTS
 
@@ -40,7 +40,8 @@ header {
   color: $white-secondary;
   background-attachment: scroll;
   background-position: center center;
-  background-image: url("../images/header-bg.jpg");
+  /* Todo: Research faster img loading. img took 9.24s to load. */
+  background-image: url("../images/table.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
@@ -120,14 +121,13 @@ section {
   border-color: transparent;
   color: $white-text;
 }
-
 .navbar-collaspe {
   border-color: transparent;
 }
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
   border-color: transparent;
 }
-
 nav {
   background-color: $color-1;
   .header-shrink {
@@ -136,7 +136,6 @@ nav {
   .collasped {
     background-color: $color-1;
   }
-
 }
 .navbar-fixed-top.header-shrink .navbar-brand {
 
@@ -282,9 +281,7 @@ nav {
   h2 {
     color: $secondary-text;
   }
-
-  i
-  {
+  i {
     color: $color-a2;
   }
 }
@@ -293,32 +290,49 @@ nav {
   background-color: $color-4;
   text-align: center;
 }
+
 /* 9. Resume */
+
 #resume {
   text-align: center;
   background-color: $white-text;
+
+  .container::before
+  {
+    display: inherit;
+  }
+
   h2 {
     color: $secondary-text;
   }
+
   .resume-header-description {
     font-family: $secondary-font;
     font-weight: 400px;
     font-style: italic;
   }
+
+  .job h4 {
+    color: $color-a3;
+  }
+
   .job-date {
     ul {
       list-style: none;
     }
   }
+
   .job-company {
     color: $secondary-text;
   }
+
   .job-title {
     color: $color-a2;
     span {
       display: block;
     }
   }
+
   .job-description {
     ul {
       list-style: none;
@@ -327,7 +341,151 @@ nav {
       }
     }
   }
+
 }
+
+
+
+.resume-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin: {
+    top: 2em;
+    bottom: 2em;
+  }
+
+  &::before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 100%;
+    width: 4px;
+    background: darken($background, 5%);
+  }
+
+  @include MQ(L) {
+    margin: {
+      top: 3em;
+      bottom: 3em;
+    }
+
+    &::before {
+      left: 50%;
+      margin-left: -2px;
+    }
+  }
+}
+
+.job-timeline-block {
+  position: relative;
+  margin: 2em 0;
+  @include clearfix;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include MQ(L) {
+    margin: 4em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.resume-timeline-date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
+
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+  }
+
+  i {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  &.cd-picture {
+    background: $color-4;
+  }
+
+  &.cd-movie {
+    background: $color-2;
+  }
+
+  &.cd-location {
+    background: $color-a3;
+  }
+
+  @include MQ(L) {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+
+    .cssanimations &.is-hidden {
+      visibility: hidden;
+    }
+
+    .cssanimations &.bounce-in {
+      visibility: visible;
+      @include animation(cd-bounce-1 .6s);
+    }
+  }
+}
+
+@include keyframes(cd-bounce-1) {
+  0% {
+    opacity: 0;
+    @include transform(scale(.5));
+  }
+
+  60% {
+    opacity: 1;
+    @include transform(scale(1.2));
+  }
+
+  100% {
+    @include transform(scale(1));
+  }
+}
+
+
+
 /* 14. Modal */
 .modal {
   text-align: center;
