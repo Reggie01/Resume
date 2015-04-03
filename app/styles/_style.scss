@@ -30,15 +30,56 @@ html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html
+{
+  font-size: 100%;
+}
 body {
   overflow-x: hidden;
   font-family: $primary-font;
   font-weight: 600;
   color: $main-text;
+  @include font-size(14px);
+
+}
+
+h1
+{
+  @include font-size(56px);
+}
+
+h2
+{
+  @include font-size(45px);
+}
+
+h3
+{
+  @include font-size(34px);
+}
+
+h4
+{
+  @include font-size(24px);
+}
+
+h5
+{
+  @include font-size(20px);
+}
+h6
+{
+  @include font-size(16px);
+}
+caption
+{
+  @include font-size(12px);
 }
 button {
   font-weight: 600;
   font-family: $secondary-font;
+  @include font-size(14px);
 }
 header {
   text-align: center;
@@ -94,14 +135,16 @@ section {
   padding-right: 0;
   padding-left: 0;
 }
-.nabar-default .container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
+.nabar-default
+{
+ .navbar-brand {
+   color: $white-secondary;
+   font-family: $secondary-font;
+
+ }
 }
-.navbar-default .navbar-brand {
-  color: $white-secondary;
-  font-family: $secondary-font;
-}
+
+
 .navbar-default .navbar-toggle {
   // Todo: remove
   // border-color: #13B0A5;
@@ -172,7 +215,6 @@ nav {
   border: 1px solid $white-secondary;
   color: $white-secondary;
   text-transform: capitalize;
-  font-size: 15px;
   font-family: $primary-font;
   font-weight: 600;
   letter-spacing: 1px;
@@ -186,19 +228,23 @@ nav {
 }
 .intro-description {
   font-family: $secondary-font;
-  font-weight: 400;
-  font-size: 25px;
   font-style: Italic;
   margin-bottom: 50px;
-  color: $white-text;
+  h4
+  {
+    color: $white-text;
+  }
+
 }
 .intro-heading {
   font-family: $secondary-font;
-  font-weight: 400;
-  font-size: 50px;
   text-transform: capitalize;
   line-height: 50px;
-  color: $white-text;
+  h1
+  {
+    color: $white-text;
+  }
+
 }
 .intro-text {
   padding-top: 100px;
@@ -216,7 +262,6 @@ nav {
     text-transform: uppercase;
     color: $secondary-text;
     font-family: $primary-font;
-    font-size: 1.2em;
     padding-bottom: 10px;
   }
   p {
@@ -277,7 +322,6 @@ nav {
       background-size: 100% 100%;
     }
     .skills-description {
-      font-size: 0.8em;
       color: $main-text;
     }
   }
@@ -519,7 +563,6 @@ nav {
     }
     span {
       color: $color-a2;
-      font-size: 4em;
     }
   }
   .modal-body {
@@ -552,7 +595,6 @@ nav {
       i {
         color: $secondary-text;
       }
-      font-size: 1.5em;
       background-color: $color-a2;
       color: $secondary-text;
     }
@@ -579,15 +621,18 @@ nav {
     -webkit-transition: padding 0.3s;
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
-  }
-  .navbar-default .nav li a {
-    color: $color-a2;
-  }
-  .navbar-default .navbar-brand {
-    font-size: 2em;
-    color: $color-a2;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+
+    .nav li a {
+      color: $white-secondary;
+    }
+
+    .navbar-brand {
+      color: $white-secondary;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+
+      @include font-size(24px);
+    }
   }
 }
