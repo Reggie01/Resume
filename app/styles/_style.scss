@@ -33,7 +33,12 @@ html * {
 body {
   overflow-x: hidden;
   font-family: $primary-font;
+  font-weight: 600;
   color: $main-text;
+}
+button {
+  font-weight: 600;
+  font-family: $secondary-font;
 }
 header {
   text-align: center;
@@ -48,18 +53,32 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
 }
+h1,
+h2,
+h3 {
+  color: $secondary-text;
+  font-family: $secondary-font;
+  font-weight: 400;
+}
+h4 {
+  font-weight: 400;
+}
+h5 {
+  font-weight: 600;
+}
+h4,
+h5,
+h6 {
+  color: $main-text;
+}
 hgroup {
-  font-family: $header-font;
   padding-bottom: 75px;
   h2 {
-    font-weight: 700px;
     border-bottom: 6px solid $color-a3;
     display: inline-block;
     text-transform: uppercase;
   }
   .header-description {
-    font-family: $secondary-font;
-    font-weight: 400px;
     font-style: italic;
   }
 }
@@ -81,7 +100,7 @@ section {
 }
 .navbar-default .navbar-brand {
   color: $white-secondary;
-  font-family: $header-font;
+  font-family: $secondary-font;
 }
 .navbar-default .navbar-toggle {
   // Todo: remove
@@ -111,7 +130,7 @@ section {
 }
 .navbar-default .nav li a {
   text-transform: uppercase;
-  font-family: $header-font;
+  font-family: $secondary-font;
   font-weight: 400;
   letter-spacing: 1px;
   color: $white-secondary;
@@ -154,8 +173,8 @@ nav {
   color: $white-secondary;
   text-transform: capitalize;
   font-size: 15px;
-  font-family: Montserrat, "Helvectica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400px;
+  font-family: $primary-font;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 .intro-text a:hover,
@@ -166,7 +185,7 @@ nav {
   border-color: $color-a2;
 }
 .intro-description {
-  font-family: Droid Serif, "Helvetica Neue", Helvectica, Arial, sans-serif;
+  font-family: $secondary-font;
   font-weight: 400;
   font-size: 25px;
   font-style: Italic;
@@ -174,8 +193,8 @@ nav {
   color: $white-text;
 }
 .intro-heading {
-  font-family: $header-font;
-  font-weight: 700;
+  font-family: $secondary-font;
+  font-weight: 400;
   font-size: 50px;
   text-transform: capitalize;
   line-height: 50px;
@@ -188,47 +207,37 @@ nav {
 /* 5. About */
 #about {
   text-align: center;
-}
-.about-description {
-  font-family: $secondary-font;
-  font-weight: 400px;
-  font-style: italic;
-}
-.img-circle {
-  margin-right: auto;
-  margin-left: auto;
-}
-#about h2 {
-  text-align: left;
-  text-transform: uppercase;
-  color: $header-color;
-  font-size: 1.5em;
-  font-weight: 700;
-}
-.about-title {
-  text-align: left;
-  text-transform: uppercase;
-  color: $secondary-text;
-  font-family: $header-font;
-  font-size: 1.2em;
-  font-weight: 700;
-  padding-bottom: 10px;
-}
-#about p {
-  text-align: left;
-  line-height: 1.5em;
-}
-.about-portrait {
-  padding-bottom: 10px;
-}
-#about button {
-  background-color: $color-a3;
-  color: $white-secondary;
-  font-family: $header-font;
-  font-weight: 700;
-  padding: 10px;
-  border: 0;
-  border-radius: 7pt;
+  .img-circle {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .about-title {
+    text-align: left;
+    text-transform: uppercase;
+    color: $secondary-text;
+    font-family: $primary-font;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+  }
+  p {
+    text-align: left;
+    line-height: 1.5em;
+  }
+  .about-portrait {
+    padding-bottom: 10px;
+  }
+  button {
+    background-color: $color-a3;
+    color: $white-secondary;
+    font-family: $primary-font;
+    padding: 10px;
+    border: 0;
+    border-radius: 7pt;
+    text-transform: uppercase;
+  }
+  article h2 {
+    text-align: left;
+  }
 }
 /* Status */
 #counter {
@@ -252,7 +261,6 @@ nav {
   // Todo: fixing section padding
   background-color: $color-4;
   .skills-header h1 {
-    font-weight: 700px;
     border-bottom: 6px solid #13b0a5;
     display: inline-block;
     text-transform: uppercase;
@@ -260,7 +268,6 @@ nav {
   article {
     .skills-title {
       text-transform: uppercase;
-      font-weight: bold;
       color: $main-text;
     }
     .skills-chart {
@@ -278,9 +285,6 @@ nav {
 /* 7. Services */
 #services {
   text-align: center;
-  h2 {
-    color: $secondary-text;
-  }
   i {
     color: $color-a2;
   }
@@ -293,44 +297,12 @@ nav {
 /* 9. Resume */
 #resume {
   text-align: center;
-  background-color: darken($white-text, 5%);
-
-  h2 {
-    color: $secondary-text;
-  }
-
+  background-color: $white-text;
   .container::before {
     display: inherit;
   }
   .resume-header-description {
-    font-family: $secondary-font;
-    font-weight: 400px;
     font-style: italic;
-  }
-  .job h4 {
-    color: $color-a3;
-  }
-  .job-date {
-    ul {
-      list-style: none;
-    }
-  }
-  .job-company {
-    color: $secondary-text;
-  }
-  .job-title {
-    color: $color-a2;
-    span {
-      display: block;
-    }
-  }
-  .job-description {
-    ul {
-      list-style: none;
-      li {
-
-      }
-    }
   }
 }
 .resume-timeline {
@@ -360,6 +332,9 @@ nav {
       margin-left: -2px;
     }
   }
+  ul {
+    list-style: none;
+  }
 }
 .job-timeline-block {
   position: relative;
@@ -384,11 +359,6 @@ nav {
 .resume-timeline-date {
   position: absolute;
   top: 0;
-  /* Todo: issue of centering on timeline. 2 options add padding to container and shift everything right
-  or move this component left.
-  left: 0;
-
-  */
   left: 15px;
   width: 40px;
   height: 40px;
@@ -426,9 +396,6 @@ nav {
   @include MQ(L) {
     width: 60px;
     height: 60px;
-    /* Todo: using bootstrap grid layout to adjust parent element. So need to change implementation of img date container.
-    left: 50%;
-    */
     left: 50%;
     margin-left: -30px;
     /* Force Hardware Acceleration in WebKit */
@@ -464,7 +431,6 @@ nav {
   padding: 1em;
   box-shadow: 0 3px 0 darken($background, 20%);
   @include clearfix;
-
   &::before {
     content: '';
     position: absolute;
@@ -475,7 +441,6 @@ nav {
     border: 7px solid transparent;
     border-right: 7px solid $color-3;
   }
-
   @include MQ(M) {
     /*
     h2 {
@@ -491,7 +456,6 @@ nav {
     }
     */
   }
-
   @include MQ(L) {
     margin-left: 0;
     padding: 1.6em;
@@ -530,19 +494,15 @@ nav {
         text-align: right;
       }
     }
-
     .cssanimations &.is-hidden {
       visibility: hidden;
     }
-
     .cssanimations &.bounce-in {
       visibility: visible;
       @include animation(cd-bounce-2 .6s);
     }
-
   }
 }
-
 /* 14. Modal */
 .modal {
   text-align: center;
@@ -552,21 +512,14 @@ nav {
       text-align: center;
     }
     hgroup {
-      color: $secondary-text;
       padding-bottom: 50px;
       h2 {
-        font-weight: bold;
-        border-bottom: 6px solid $color-a3;
         display: inline-block;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 2.5em;
       }
     }
     span {
       color: $color-a2;
       font-size: 4em;
-      font-weight: 400;
     }
   }
   .modal-body {
