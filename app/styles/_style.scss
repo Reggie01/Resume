@@ -290,49 +290,40 @@ nav {
   background-color: $color-4;
   text-align: center;
 }
-
 /* 9. Resume */
-
 #resume {
   text-align: center;
-  background-color: $white-text;
-
-  .container::before
-  {
-    display: inherit;
-  }
+  background-color: darken($white-text, 5%);
 
   h2 {
     color: $secondary-text;
   }
 
+  .container::before {
+    display: inherit;
+  }
   .resume-header-description {
     font-family: $secondary-font;
     font-weight: 400px;
     font-style: italic;
   }
-
   .job h4 {
     color: $color-a3;
   }
-
   .job-date {
     ul {
       list-style: none;
     }
   }
-
   .job-company {
     color: $secondary-text;
   }
-
   .job-title {
     color: $color-a2;
     span {
       display: block;
     }
   }
-
   .job-description {
     ul {
       list-style: none;
@@ -341,11 +332,7 @@ nav {
       }
     }
   }
-
 }
-
-
-
 .resume-timeline {
   position: relative;
   padding: 2em 0;
@@ -353,7 +340,6 @@ nav {
     top: 2em;
     bottom: 2em;
   }
-
   &::before {
     /* this is the vertical line */
     content: '';
@@ -364,55 +350,50 @@ nav {
     width: 4px;
     background: darken($background, 5%);
   }
-
   @include MQ(L) {
     margin: {
       top: 3em;
       bottom: 3em;
     }
-
     &::before {
       left: 50%;
       margin-left: -2px;
     }
   }
 }
-
 .job-timeline-block {
   position: relative;
   margin: 2em 0;
   @include clearfix;
-
   &:first-child {
     margin-top: 0;
   }
-
   &:last-child {
     margin-bottom: 0;
   }
-
   @include MQ(L) {
     margin: 4em 0;
-
     &:first-child {
       margin-top: 0;
     }
-
     &:last-child {
       margin-bottom: 0;
     }
   }
 }
-
 .resume-timeline-date {
   position: absolute;
   top: 0;
+  /* Todo: issue of centering on timeline. 2 options add padding to container and shift everything right
+  or move this component left.
   left: 0;
+
+  */
+  left: 15px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
-
+  box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05);
   img {
     display: block;
     width: 24px;
@@ -423,7 +404,6 @@ nav {
     margin-left: -12px;
     margin-top: -12px;
   }
-
   i {
     display: block;
     width: 24px;
@@ -434,28 +414,122 @@ nav {
     margin-left: -12px;
     margin-right: -12px;
   }
-
   &.cd-picture {
     background: $color-4;
   }
-
   &.cd-movie {
     background: $color-2;
   }
-
   &.cd-location {
     background: $color-a3;
   }
-
   @include MQ(L) {
     width: 60px;
     height: 60px;
+    /* Todo: using bootstrap grid layout to adjust parent element. So need to change implementation of img date container.
+    left: 50%;
+    */
     left: 50%;
     margin-left: -30px;
-
     /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
+    .cssanimations &.is-hidden {
+      visibility: hidden;
+    }
+    .cssanimations &.bounce-in {
+      visibility: visible;
+      @include animation(cd-bounce-1 .6s);
+    }
+  }
+}
+@include keyframes(cd-bounce-1) {
+  0% {
+    opacity: 0;
+    @include transform(scale(.5));
+  }
+  60% {
+    opacity: 1;
+    @include transform(scale(1.2));
+  }
+  100% {
+    @include transform(scale(1));
+  }
+}
+.resume-content {
+  position: relative;
+  margin-left: 60px;
+  background-color: $color-3;
+  @include border-radius;
+  padding: 1em;
+  box-shadow: 0 3px 0 darken($background, 20%);
+  @include clearfix;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-right: 7px solid $color-3;
+  }
+
+  @include MQ(M) {
+    /*
+    h2 {
+      @include font-size(20px);
+    }
+
+    p {
+      @include font-size(16px);
+    }
+    .cd-read-more,
+    .cd-date {
+      @include font-size(14px);
+    }
+    */
+  }
+
+  @include MQ(L) {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
+    &::before {
+      top: 24px;
+      left: 100%;
+      border-color: transparent;
+      border-left-color: $color-3;
+    }
+    .cd-read-more {
+      float: left;
+    }
+    .cd-date {
+      position: absolute;
+      width: 100%;
+      left: 122%;
+      top: 6px;
+      @include font-size(16px);
+    }
+    .cd-timeline-block:nth-child(even) & {
+      float: right;
+      &::before {
+        top: 24px;
+        left: auto;
+        right: 100%;
+        border-color: transparent;
+        border-right-color: $color-3;
+      }
+      .cd-read-more {
+        float: right;
+      }
+      .cd-date {
+        left: auto;
+        right: 122%;
+        text-align: right;
+      }
+    }
 
     .cssanimations &.is-hidden {
       visibility: hidden;
@@ -463,28 +537,11 @@ nav {
 
     .cssanimations &.bounce-in {
       visibility: visible;
-      @include animation(cd-bounce-1 .6s);
+      @include animation(cd-bounce-2 .6s);
     }
+
   }
 }
-
-@include keyframes(cd-bounce-1) {
-  0% {
-    opacity: 0;
-    @include transform(scale(.5));
-  }
-
-  60% {
-    opacity: 1;
-    @include transform(scale(1.2));
-  }
-
-  100% {
-    @include transform(scale(1));
-  }
-}
-
-
 
 /* 14. Modal */
 .modal {
