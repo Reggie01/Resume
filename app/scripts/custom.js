@@ -27,7 +27,7 @@ $('#myModal').on('shown.bs.modal', function () {
         var sy = scrollY();
         if ( sy >= changeHeaderOn ) {
             if(header.className.search("header-shrink") == -1){
-                header.className = header.className + "header-shrink";
+                header.className = header.className + " header-shrink";
             }
         }
         else
