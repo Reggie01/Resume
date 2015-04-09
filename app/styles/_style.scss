@@ -272,18 +272,25 @@ nav {
 #counter {
   background-image: url("../images/bg-portfolio.jpg");
   color: $white-main;
-  // Todo:fixing section padding
-  /* padding-top: 90px;
-    padding-bottom: 90px; */
   text-align: center;
   line-height: 2.0em;
+
+  i {
+   color: $color-a3;
+ }
+
+ .counter-container {
+   padding-bottom: 20px;
+ }
+
+ h4
+ {
+   color: $white-main;
+ }
+
 }
-.counter-container {
-  padding-bottom: 20px;
-}
-#counter i {
-  color: $color-a3;
-}
+
+
 /* 6. Skills */
 #skills {
   text-align: center;

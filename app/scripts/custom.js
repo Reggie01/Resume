@@ -14,7 +14,6 @@ $('#myModal').on('shown.bs.modal', function () {
 
     function init() {
          window.addEventListener( 'scroll', function( event ){
-
           if (!didScroll ) {
               didScroll = true;
               setTimeout ( scrollPage, 250 );
@@ -42,16 +41,16 @@ $('#myModal').on('shown.bs.modal', function () {
 
     function scrollY() {
          // docElem.scrollTop for IE8 and below
-         return window.pageYOffset || docElem.scrollTop;
+         return window.pageYOffset || document.documentElement.scrollTop;
     }
 
     init();
 
 })();
 
-// http://codyhouse.co/gem/vertical-timeline/ Guideline for building timeline
-
 jQuery(document).ready(function($){
+
+  // http://codyhouse.co/gem/vertical-timeline/ Guideline for building timeline
   var $timeline_block = $('.job-timeline-block');
 
   //hide timeline blocks which are outside the viewport
@@ -61,12 +60,61 @@ jQuery(document).ready(function($){
     }
   });
 
+
   //on scolling, show/animate timeline blocks when enter the viewport
   $(window).on('scroll', function(){
+
     $timeline_block.each(function(){
       if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.resume-timeline-date').hasClass('is-hidden') ) {
         $(this).find('.resume-timeline-date, .resume-content').removeClass('is-hidden').addClass('bounce-in');
       }
     });
   });
+
 });
+
+
+window.onload = function()
+{
+  /* Animation of numbers for counter section */
+  var luckyNumberEl = document.getElementById('luckyNumber');
+  var luckyNumber = !isNaN(luckyNumberEl.textContent) ? parseInt(luckyNumberEl.textContent) : console.log('Lucky Number is NaN');
+  var luckyNumberCount = 0;
+
+  function frame()
+  {
+
+    if(luckyNumberCount > luckyNumber)
+    {
+      window.clearInterval(timerId);
+    } else
+    {
+      luckyNumberEl.textContent = luckyNumberCount++;
+    }
+
+  }
+
+  var timerId = window.setInterval(frame, 500);
+
+  var luckyNumberOffset = 0;
+  var windowY = 0;
+  var luckyNumberElY = 0;
+  var windowHeight = 0;
+
+  window.onscroll = function()
+  {
+    luckyNumberOffsetY = luckyNumberEl.getBoundingClientRect().top;
+    windowY = window.pageYOffset;
+    luckyNumberElY = luckyNumberEl.getBoundingClientRect().top + windowY;
+    windowHeight = window.innerHeight;
+
+    console.log(
+      "Window Height + windowY : " + (windowY + (window.innerHeight * 0.75)) + " \nluckyNumberElY " + luckyNumberElY)
+    if( luckyNumberElY <= windowY + (window.innerHeight * 0.75) )
+    {
+      frame();
+    }
+
+  }
+
+}
