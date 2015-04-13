@@ -73,87 +73,61 @@ jQuery(document).ready(function($) {
 });
 
 
-function CounterAnimate()
+// Todo: remove hardcoded values
+function CounterAnimate(element)
 {
   //  'use strict';
-    this.coffee = document.getElementById('coffeeCupNumber');
-    this.coffeeCups = !isNaN(this.coffee.textContent) ? parseInt(this.coffee.textContent) : console.log('Lucky Number is NaN');
-    this.coffeeCupsInitial = 0;
-    this.timerId;
-    var that = this;
+    this.element = document.getElementById(element);
+    this.elementEndingNumber = !isNaN(this.element.textContent) ? parseInt(this.element.textContent) : console.log('Lucky Number is NaN');
+    this.elementCounter = 0;
+    this.intervalId;
+
 }
 
 CounterAnimate.prototype.checkPos = function()
 {
   var windowOffset = window.pageYOffset;
   var windowHeight = window.innerHeight;
-  var coffeeTop = this.coffee.getBoundingClientRect().top;
+  var elementTop = this.element.getBoundingClientRect().top;
 
-  if ((coffeeTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
-    console.log("Coffee top: " + coffeeTop + "\n Window Height: " + windowHeight + "\n Window offset: " + windowOffset);
+  if ((elementTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
+    console.log("Element top: " + elementTop + "\n Window Height: " + windowHeight + "\n Window offset: " + windowOffset);
+    return true;
   }
 
 }
 
 CounterAnimate.prototype.frame = function()
 {
-  if (this.coffeeCupsInitial > this.coffeeCups) {
-    window.clearInterval(this.timerId);
+  if (this.elementCounter > this.elementEndingNumber) {
+    window.clearInterval(this.intervalId);
   } else {
-    this.coffee.textContent = this.coffeeCupsInitial++;
+    this.element.textContent = this.elementCounter++;
   }
 }
 
 CounterAnimate.prototype.play = function()
 {
   var self = this;
-  this.timerId = window.setInterval(function(){ self.frame(); }, 500);
-}
+      if(this.checkPos()){
+        this.intervalId = window.setInterval(function(){ self.frame(); }, 500);
+      }
+  }
 
 window.onload = function() {
   /* Animation of numbers for counter section */
-  var luckyNumberEl = document.getElementById('luckyNumber');
-  var luckyNumber = !isNaN(luckyNumberEl.textContent) ? parseInt(luckyNumberEl.textContent) : console.log('Lucky Number is NaN');
-  var luckyNumberCount = 0;
+
+  var musicNumberAnimation = new CounterAnimate('musicNumber');
+  var coffeeNumberAnimation = new CounterAnimate('coffeeCupNumber');
+  var luckyNumberAnimation = new CounterAnimate('luckyNumber');
 
 
-  function play() {
-
-      function frame() {
-
-          if (luckyNumberCount > luckyNumber) {
-            window.clearInterval(timerId);
-          } else {
-            luckyNumberEl.textContent = luckyNumberCount++;
-          }
-      }
-
-    var timerId = window.setInterval(frame, 500);
+  var numberAnimation = function() {
+      console.log('scrolling...');
+      coffeeNumberAnimation.play();
+      musicNumberAnimation.play();
+      luckyNumberAnimation.play();
   }
 
-
-  var luckyNumberOffsetY = 0;
-  var windowY = 0;
-  var luckyNumberElY = 0;
-  var windowHeight = 0;
-
-  var Counter = new CounterAnimate();
-
-  var runCounter = function() {
-    luckyNumberOffsetY = luckyNumberEl.getBoundingClientRect().top;
-    windowY = window.pageYOffset;
-    luckyNumberElY = luckyNumberEl.getBoundingClientRect().top + windowY;
-    windowHeight = window.innerHeight;
-
-    Counter.play();
-
-    console.log(
-      "Window Height + windowY : " + (windowY + (window.innerHeight * 0.75)) + " \nluckyNumberElY " + luckyNumberElY);
-    if (luckyNumberElY <= windowY + (window.innerHeight * 0.75)) {
-      play();
-    }
-
-  }
-  window.onscroll = runCounter;
-
+  window.onscroll = numberAnimation;
 }
