@@ -73,48 +73,48 @@ jQuery(document).ready(function($) {
 });
 
 
-// Todo: remove hardcoded values
-function CounterAnimate(element)
-{
-  //  'use strict';
-    this.element = document.getElementById(element);
-    this.elementEndingNumber = !isNaN(this.element.textContent) ? parseInt(this.element.textContent) : console.log('Lucky Number is NaN');
-    this.elementCounter = 0;
-    this.intervalId;
-
-}
-
-CounterAnimate.prototype.checkPos = function()
-{
-  var windowOffset = window.pageYOffset;
-  var windowHeight = window.innerHeight;
-  var elementTop = this.element.getBoundingClientRect().top;
-
-  if ((elementTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
-    console.log("Element top: " + elementTop + "\n Window Height: " + windowHeight + "\n Window offset: " + windowOffset);
-    return true;
-  }
-
-}
-
-CounterAnimate.prototype.frame = function()
-{
-  if (this.elementCounter > this.elementEndingNumber) {
-    window.clearInterval(this.intervalId);
-  } else {
-    this.element.textContent = this.elementCounter++;
-  }
-}
-
-CounterAnimate.prototype.play = function()
-{
-  var self = this;
-      if(this.checkPos()){
-        this.intervalId = window.setInterval(function(){ self.frame(); }, 500);
-      }
-  }
-
 window.onload = function() {
+
+  function CounterAnimate(element)
+  {
+    //  'use strict';
+      this.element = document.getElementById(element);
+      this.elementEndingNumber = !isNaN(this.element.textContent) ? parseInt(this.element.textContent) : console.log('Lucky Number is NaN');
+      this.elementCounter = 0;
+      this.intervalId;
+
+  }
+
+  CounterAnimate.prototype.checkPos = function()
+  {
+    var windowOffset = window.pageYOffset;
+    var windowHeight = window.innerHeight;
+    var elementTop = this.element.getBoundingClientRect().top;
+
+    if ((elementTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
+      console.log("Element top: " + elementTop + "\n Window Height: " + windowHeight + "\n Window offset: " + windowOffset);
+      return true;
+    }
+
+  }
+
+  CounterAnimate.prototype.frame = function()
+  {
+    if (this.elementCounter > this.elementEndingNumber) {
+      window.clearInterval(this.intervalId);
+    } else {
+      this.element.textContent = this.elementCounter++;
+    }
+  }
+
+  CounterAnimate.prototype.play = function()
+  {
+    var self = this;
+        if(this.checkPos()){
+          this.intervalId = window.setInterval(function(){ self.frame(); }, 500);
+        }
+  }
+
   /* Animation of numbers for counter section */
 
   var musicNumberAnimation = new CounterAnimate('musicNumber');
@@ -130,4 +130,30 @@ window.onload = function() {
   }
 
   window.onscroll = numberAnimation;
+
+
+  // Todo: try different easings for chart
+
+ $('.chart').easyPieChart({
+      animate: 2000,
+      trackColor:'#e1e1e3',
+      //scaleColor: '#e1e1e3',
+      lineWidth: 15,
+      easing: "easeOutBounce",
+      barColor: '#2196F3',
+      scaleLength: 0,
+      size: 152,
+      //rotate: 0,
+
+      onStep: function(from, to, currentValue)
+      {
+        $(this.el).find('span').text(Math.round(currentValue) + '%');
+      }
+
+  });
+
+*/
+
+
+
 }

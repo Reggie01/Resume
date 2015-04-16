@@ -311,6 +311,25 @@ nav {
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 100% 100%;
+      width: 150px;
+      height: 150px;
+      left: 25%;
+      position: relative;
+      text-align: center;
+      span
+      {
+        display: inline-block;
+        font-size: 21px;
+        z-index: 2;
+        position: relative;
+        top: 55px;
+      }
+      canvas
+      {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
     .skills-description {
       color: $main-text;
