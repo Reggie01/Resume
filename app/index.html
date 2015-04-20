@@ -513,6 +513,9 @@
     </div>
   </section>
 
+
+
+
   <section id="contact">
     <div class="container">
       <hgroup>
@@ -534,29 +537,30 @@
               </div>
 
               <div class="icon">
-                <label class="cd-label" for="cd-name">Name</label>
-                <input class="user" type="text" name="cd-name" id="cd-name" required>
+                <label class="cd-label" for="frmName">Name</label>
+                <input class="user" name="name" id="frmName" placeholder="Your Name" required autocomplete="name">
               </div>
               <div class="icon">
-                <label class="cd-label" for="cd-name">Email</label>
-                <input class="user" type="email" name="cd-name" id="cd-name" required>
+                <label class="cd-label" for="frmEmail">Email</label>
+                <input class="user" type="email" name="email" id="frmEmail" placeholder="name@example.com" required autocomplete="email">
               </div>
               <div class="icon">
-                <label class="cd-label" for="cd-name">Phone Number</label>
-                <input class="user" type="text" name="cd-name" id="cd-name" required>
+                <label class="cd-label" for="frmPhoneNum">Phone Number</label>
+                <input class="user" type="tel" name="phone" id="frmPhoneNum" placeholder="+1-444-444-1234" required autocomplete="tel">
               </div>
             </fieldset>
+            <button type="submit">Send Message</button>
           </form>
         </div>
         <aside class="contact-details col-xs-12">
-          <h3>Contact Details</h3>
+          <h4>Contact Details</h4>
           <p>Indoctum explicari sed et, aliquando repudiandae liberavisse quo id. Et ius vero erant debitis. Vix solum mollis iuvaret ad, illud ponderum ea sed, et elitr vulputate mea.</p>
           <p>Lorem ipsum dolor sit amet, no nam aliquid vivendo, ei quod summo gubergren eum.</p>
           <ul>
-            <li><i class="fa fa-twitter"></i><a href="#">@foo</a></li>
-            <li><i class="fa fa-google-plus"></i><a href="#">Reggie</a></li>
-            <li><i class="fa fa-github"></i><a href="#">Reggie</a></li>
-            <li><i class="fa fa-linkedin"></i><a href="#">Reggie</a></li>
+            <li><i class="fa fa-twitter fa-2x"></i><a href="#">@foo</a></li>
+            <li><i class="fa fa-google-plus fa-2x"></i><a href="#">Reggie</a></li>
+            <li><i class="fa fa-github fa-2x"></i><a href="#">Reggie</a></li>
+            <li><i class="fa fa-linkedin fa-2x"></i><a href="#">Reggie</a></li>
           </ul>
         </aside>
       </div>
@@ -636,7 +640,7 @@
           </div>
 
           <hgroup>
-            <h2>Project 1</h2>
+            <h2>Project 2</h2>
 
             <div class="header-description">
               <h4>Everything and more.</h4>
@@ -697,7 +701,7 @@
           </div>
 
           <hgroup>
-            <h2>Project 2</h2>
+            <h2>Project 3</h2>
 
             <div class="header-description">
               <h4>Everything and more.</h4>
@@ -750,7 +754,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
-  <script src="scripts/jquery.easing.1.3.js"></script>
+  <script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
   <script src="bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
   <script src="scripts/custom.js"></script>
 </body>

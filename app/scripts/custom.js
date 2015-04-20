@@ -89,7 +89,13 @@ window.onload = function() {
   {
     var windowOffset = window.pageYOffset;
     var windowHeight = window.innerHeight;
-    var elementTop = this.element.getBoundingClientRect().top;
+    if(typeof this.element === "object"){
+      var elementTop = this.element.getBoundingClientRect().top;
+    }
+    else
+    {
+      var elementTop = this.getBoundingClientRect().top;
+    }
 
     if ((elementTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
       console.log("Element top: " + elementTop + "\n Window Height: " + windowHeight + "\n Window offset: " + windowOffset);
@@ -115,6 +121,8 @@ window.onload = function() {
         }
   }
 
+
+
   /* Animation of numbers for counter section */
 
   var musicNumberAnimation = new CounterAnimate('musicNumber');
@@ -133,7 +141,8 @@ window.onload = function() {
 
 
   // Todo: try different easings for chart
-
+  // Todo: move code and tie to an onscroll event
+/*
  $('.chart').easyPieChart({
       animate: 2000,
       trackColor:'#e1e1e3',
@@ -151,8 +160,33 @@ window.onload = function() {
       }
 
   });
-
 */
+  $charts = $('.chart');
+  $(window).on('scroll', function(){
+    $charts.each(function() {
+        if(CounterAnimate.prototype.checkPos.call(this))
+        {
+          $(this).easyPieChart({
+               animate: 2000,
+               trackColor:'#e1e1e3',
+               //scaleColor: '#e1e1e3',
+               lineWidth: 15,
+               easing: "easeOutBounce",
+               barColor: '#2196F3',
+               scaleLength: 0,
+               size: 152,
+               //rotate: 0,
+
+               onStep: function(from, to, currentValue)
+               {
+                 $(this.el).find('span').text(Math.round(currentValue) + '%');
+               }
+
+           });
+        }
+    });
+  });
+
 
 
 

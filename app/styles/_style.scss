@@ -15,12 +15,11 @@
     7. Services
     8. Portfolio
     9. Resume
-    10. Clients
-    11. Contact
-    12. Footer
-    13. Social Icon
-    14. Portfolio Modal
-    15. Media Queries
+    10. Contact
+    11. Footer
+    12. Social Icon
+    13. Portfolio Modal
+    14. Media Queries
 */
 /* 1. Preloader
 -------------------------------------------------*/
@@ -491,19 +490,7 @@ nav {
   text-align: left;
   @include clearfix;
   @include MQ(M) {
-    /*
-    h2 {
-      @include font-size(20px);
-    }
 
-    p {
-      @include font-size(16px);
-    }
-    .cd-read-more,
-    .cd-date {
-      @include font-size(14px);
-    }
-    */
   }
   @include MQ(L) {
     text-align: left;
@@ -556,7 +543,32 @@ nav {
     @include transform(translateX(0));
   }
 }
-/* 14. Modal */
+
+/* 10. Contact */
+#contact{
+  border-top: 20px solid $color-a3;
+  hgroup
+  {
+    text-align:center;
+  }
+
+  cd-label, user
+  {
+    width: 100%;
+  }
+
+  ul li
+  {
+    list-style: none;
+  }
+
+  ul li a
+  {
+    color: $color-a3;
+  }
+}
+
+/* 13. Portfolio Modal */
 .modal {
   text-align: center;
   .modal-header {
@@ -620,7 +632,7 @@ nav {
     color: $color-a2;
   }
 }
-/* 15. Media Queries */
+/* 14. Media Queries */
 /* Todo: Add media queries for header-shrink?? */
 @media(min-width: 768px) {
   .navbar-default {
@@ -641,4 +653,9 @@ nav {
       @include font-size(24px);
     }
   }
+
+  .intro-text{
+      padding: 300px 0px;
+  }
+  
 }
