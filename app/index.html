@@ -540,32 +540,70 @@
                 <label class="cd-label" for="frmName">Name</label>
                 <input class="user" name="name" id="frmName" placeholder="Your Name" required autocomplete="name">
               </div>
+              <div class="error">
+                  Please enter your name.
+              </div>
               <div class="icon">
                 <label class="cd-label" for="frmEmail">Email</label>
                 <input class="user" type="email" name="email" id="frmEmail" placeholder="name@example.com" required autocomplete="email">
+              </div>
+              <div class="error">
+                  Please enter your email.
               </div>
               <div class="icon">
                 <label class="cd-label" for="frmPhoneNum">Phone Number</label>
                 <input class="user" type="tel" name="phone" id="frmPhoneNum" placeholder="+1-444-444-1234" required autocomplete="tel">
               </div>
+              <div class="error">
+                  Please enter your phone number.
+              </div>
+              <div class="icon">
+                <p>Message</p>
+                <textarea placeholder="Your Message.." id="message" maxlength=500 name="ctrlMessage" rows="10" required></textarea>
             </fieldset>
             <button type="submit">Send Message</button>
           </form>
+          </div>
+          <aside class="contact-details col-xs-12">
+            <h4>Contact Details</h4>
+            <p>Indoctum explicari sed et, aliquando repudiandae liberavisse quo id. Et ius vero erant debitis. Vix solum mollis iuvaret ad, illud ponderum ea sed, et elitr vulputate mea.</p>
+            <p>Lorem ipsum dolor sit amet, no nam aliquid vivendo, ei quod summo gubergren eum.</p>
+            <ul>
+              <li><i class="fa fa-twitter fa-2x"></i><a href="#">@foo</a></li>
+              <li><i class="fa fa-google-plus fa-2x"></i><a href="#">bar</a></li>
+              <li><i class="fa fa-github fa-2x"></i><a href="#">Hello</a></li>
+              <li><i class="fa fa-linkedin fa-2x"></i><a href="#">World</a></li>
+            </ul>
+          </aside>
         </div>
-        <aside class="contact-details col-xs-12">
-          <h4>Contact Details</h4>
-          <p>Indoctum explicari sed et, aliquando repudiandae liberavisse quo id. Et ius vero erant debitis. Vix solum mollis iuvaret ad, illud ponderum ea sed, et elitr vulputate mea.</p>
-          <p>Lorem ipsum dolor sit amet, no nam aliquid vivendo, ei quod summo gubergren eum.</p>
+      </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-4 footer-copyright">
+          <p>Copyright &copy; rsanders 2015</p>
+        </div>
+        <div class="col-8 footer-icons">
           <ul>
-            <li><i class="fa fa-twitter fa-2x"></i><a href="#">@foo</a></li>
-            <li><i class="fa fa-google-plus fa-2x"></i><a href="#">Reggie</a></li>
-            <li><i class="fa fa-github fa-2x"></i><a href="#">Reggie</a></li>
-            <li><i class="fa fa-linkedin fa-2x"></i><a href="#">Reggie</a></li>
+            <li>
+              <a class="fa fa-twitter fa-2x"></a>
+            </li>
+            <li>
+              <a class="fa fa-google-plus fa-2x"></a>
+            </li>
+            <li>
+              <a class="fa fa-github fa-2x"></a>
+            </li>
+            <li>
+              <a class="fa fa-linkedin fa-2x"></a>
+            </li>
           </ul>
-        </aside>
+        </div>
       </div>
     </div>
-  </section>
+  </footer>
 
   <!-- Modals -->
   <div class="modal fade in" id="modal1" tabindex="-1">

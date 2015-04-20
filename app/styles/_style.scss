@@ -213,7 +213,7 @@ nav {
 .intro-description {
   font-family: $primary-font;
   font-style: Italic;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   h4 {
     color: $white-main;
   }
@@ -547,24 +547,71 @@ nav {
 /* 10. Contact */
 #contact{
   border-top: 20px solid $color-a3;
+
+  background-color: $color-4;
   hgroup
   {
     text-align:center;
   }
 
-  cd-label, user
+  cd-label, .user, textarea
   {
     width: 100%;
+  }
+
+  ul
+  {
+    padding-left: 0px;
   }
 
   ul li
   {
     list-style: none;
+    padding-bottom: calculateRem(10px);
+  }
+
+  ul li i
+  {
+    padding-right: calculateRem(20px);
   }
 
   ul li a
   {
     color: $color-a3;
+  }
+}
+
+/* Footer */
+footer
+{
+  background-color: $color-4;
+
+  footer-copyright
+  {
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  p
+  {
+    text-align: center;
+  }
+
+  footer-icons
+  {
+
+  }
+
+  ul li
+  {
+      list-style: none;
+      display: inline;
+      padding: 10px 15px;
+  }
+
+  ul li a
+  {
+
   }
 }
 
@@ -657,5 +704,10 @@ nav {
   .intro-text{
       padding: 300px 0px;
   }
-  
+
+  navbar
+  {
+
+  }
+
 }
