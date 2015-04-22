@@ -74,6 +74,7 @@ jQuery(document).ready(function($) {
 
 
 window.onload = function() {
+  $(function() { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
 
   function CounterAnimate(element)
   {
