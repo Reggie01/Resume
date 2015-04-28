@@ -30,8 +30,6 @@ var animateHeader = (function() {
         header.className = header.className + " header-shrink";
       }
     } else {
-      // Todo: remove console.log after testing
-      console.log(header.className);
       header.className = header.className.replace("header-shrink", "");
     }
     didScroll = false;
@@ -74,27 +72,52 @@ jQuery(document).ready(function($) {
 
 
 window.onload = function() {
-  $(function() { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
 
-  function CounterAnimate(element)
-  {
+  jQuery.validator.addMethod("phoneno", function(value, element) {
+    // allow any non-whitespace characters as the host part
+    return this.optional( element ) || /^\(?[0-9]{3}(\-|\)) ?[0-9]{3}-[0-9]{4}$/.test( value );
+  }, 'Please enter a valid phone number.');
+
+  $("#contactForm").validate({
+    debug: true,
+    rules: {
+      name: {
+        required: true,
+        minlength: 2
+      },
+      email: {
+        required: true,
+        email: true,
+        maxlength: 30
+      },
+      phone: {
+        required: true,
+        phoneno: true,
+        maxlength: 20
+      },
+
+    },
+    submitHandler: function() {
+      console.log("Submit successful!!");
+      alert("Thanks for submitting!!");
+    }
+  });
+
+  function CounterAnimate(element) {
     //  'use strict';
-      this.element = document.getElementById(element);
-      this.elementEndingNumber = !isNaN(this.element.textContent) ? parseInt(this.element.textContent) : console.log('Lucky Number is NaN');
-      this.elementCounter = 0;
-      this.intervalId;
+    this.element = document.getElementById(element);
+    this.elementEndingNumber = !isNaN(this.element.textContent) ? parseInt(this.element.textContent) : console.log('Lucky Number is NaN');
+    this.elementCounter = 0;
+    this.intervalId;
 
   }
 
-  CounterAnimate.prototype.checkPos = function()
-  {
+  CounterAnimate.prototype.checkPos = function() {
     var windowOffset = window.pageYOffset;
     var windowHeight = window.innerHeight;
-    if(typeof this.element === "object"){
+    if (typeof this.element === "object") {
       var elementTop = this.element.getBoundingClientRect().top;
-    }
-    else
-    {
+    } else {
       var elementTop = this.getBoundingClientRect().top;
     }
 
@@ -105,8 +128,7 @@ window.onload = function() {
 
   }
 
-  CounterAnimate.prototype.frame = function()
-  {
+  CounterAnimate.prototype.frame = function() {
     if (this.elementCounter > this.elementEndingNumber) {
       window.clearInterval(this.intervalId);
     } else {
@@ -114,12 +136,13 @@ window.onload = function() {
     }
   }
 
-  CounterAnimate.prototype.play = function()
-  {
+  CounterAnimate.prototype.play = function() {
     var self = this;
-        if(this.checkPos()){
-          this.intervalId = window.setInterval(function(){ self.frame(); }, 500);
-        }
+    if (this.checkPos()) {
+      this.intervalId = window.setInterval(function() {
+        self.frame();
+      }, 500);
+    }
   }
 
 
@@ -132,10 +155,10 @@ window.onload = function() {
 
 
   var numberAnimation = function() {
-      console.log('scrolling...');
-      coffeeNumberAnimation.play();
-      musicNumberAnimation.play();
-      luckyNumberAnimation.play();
+    console.log('scrolling...');
+    coffeeNumberAnimation.play();
+    musicNumberAnimation.play();
+    luckyNumberAnimation.play();
   }
 
   window.onscroll = numberAnimation;
@@ -143,48 +166,46 @@ window.onload = function() {
 
   // Todo: try different easings for chart
   // Todo: move code and tie to an onscroll event
-/*
- $('.chart').easyPieChart({
-      animate: 2000,
-      trackColor:'#e1e1e3',
-      //scaleColor: '#e1e1e3',
-      lineWidth: 15,
-      easing: "easeOutBounce",
-      barColor: '#2196F3',
-      scaleLength: 0,
-      size: 152,
-      //rotate: 0,
+  /*
+   $('.chart').easyPieChart({
+        animate: 2000,
+        trackColor:'#e1e1e3',
+        //scaleColor: '#e1e1e3',
+        lineWidth: 15,
+        easing: "easeOutBounce",
+        barColor: '#2196F3',
+        scaleLength: 0,
+        size: 152,
+        //rotate: 0,
 
-      onStep: function(from, to, currentValue)
-      {
-        $(this.el).find('span').text(Math.round(currentValue) + '%');
-      }
-
-  });
-*/
-  $charts = $('.chart');
-  $(window).on('scroll', function(){
-    $charts.each(function() {
-        if(CounterAnimate.prototype.checkPos.call(this))
+        onStep: function(from, to, currentValue)
         {
-          $(this).easyPieChart({
-               animate: 2000,
-               trackColor:'#e1e1e3',
-               //scaleColor: '#e1e1e3',
-               lineWidth: 15,
-               easing: "easeOutBounce",
-               barColor: '#2196F3',
-               scaleLength: 0,
-               size: 152,
-               //rotate: 0,
-
-               onStep: function(from, to, currentValue)
-               {
-                 $(this.el).find('span').text(Math.round(currentValue) + '%');
-               }
-
-           });
+          $(this.el).find('span').text(Math.round(currentValue) + '%');
         }
+
+    });
+  */
+  $charts = $('.chart');
+  $(window).on('scroll', function() {
+    $charts.each(function() {
+      if (CounterAnimate.prototype.checkPos.call(this)) {
+        $(this).easyPieChart({
+          animate: 2000,
+          trackColor: '#e1e1e3',
+          //scaleColor: '#e1e1e3',
+          lineWidth: 15,
+          easing: "easeOutBounce",
+          barColor: '#2196F3',
+          scaleLength: 0,
+          size: 152,
+          //rotate: 0,
+
+          onStep: function(from, to, currentValue) {
+            $(this.el).find('span').text(Math.round(currentValue) + '%');
+          }
+
+        });
+      }
     });
   });
 

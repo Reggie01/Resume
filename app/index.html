@@ -84,13 +84,13 @@
 
   <section id="about">
     <div class="container">
-      <hgroup>
+      <div class="hgroup">
         <h2>About me</h2>
 
         <div class="header-description">
           <h4>.Net Developer | full-stack</h4>
         </div>
-      </hgroup>
+      </div>
 
       <article>
         <div class="about-portrait">
@@ -156,19 +156,18 @@
 
   <section id="skills">
     <div class="container">
-      <hgroup class="skills-header">
+      <div class="hgroup skills-header">
         <h2>Skills</h2>
 
         <div class="header-description">
           <h4>Because a picture is worth a thousand words...</h4>
         </div>
-      </hgroup>
+      </div>
       <div class="row">
         <article class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
           <div class="skills-chart chart" data-percent="73">
             <span>73%</span>
-
           </div>
 
           <div class="skills-title">
@@ -273,13 +272,13 @@
 
   <section id="services">
     <div class="container">
-      <hgroup>
+      <div class="hgroup">
         <h2>Services</h2>
 
         <div class="header-description">
           <h4>Because a picture is worth a thousand words...</h4>
         </div>
-      </hgroup>
+      </div>
 
 
       <div class="row">
@@ -313,13 +312,13 @@
 
   <section id="portfolio">
     <div class="container">
-      <hgroup>
+      <div class="hgroup">
         <h2>Portfolio</h2>
 
         <div class="header-description">
           <h4>Everything and more.</h4>
         </div>
-      </hgroup>
+      </div>
 
 
       <div class="row">
@@ -361,13 +360,13 @@
 
   <section id="resume">
     <div class="container">
-      <hgroup>
+      <div class="hgroup">
         <h2 class="resume-header">Resume</h2>
 
         <div class="header-description">
           <h4>Everything that makes me who I am.</h4>
         </div>
-      </hgroup>
+      </div>
       <div class="resume-timeline" id="resume-container">
         <div class="row">
 
@@ -518,53 +517,47 @@
 
   <section id="contact">
     <div class="container">
-      <hgroup>
+      <div class="hgroup">
         <h2>Get in Touch</h2>
 
         <div class="header-description">
           <h4>Lorem ipsum dolor sit amet.</h4>
           <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
         </div>
-      </hgroup>
+      </div>
       <div class="row">
         <div class="form col-xs-12 col-md-6">
-          <form>
+          <form id="contactForm">
             <fieldset>
               <legend>Contact Info</legend>
 
-              <div class="icon">
-                <label class="cd-label" for="frmName">Name</label>
-                <input class="user" name="name" id="frmName" placeholder="Your Name" required autocomplete="name">
+              <div class="form-group">
+                <label class="name-label" for="frmName">Name</label>
+                <input class="form-control" type="text" name="name" id="frmName" placeholder="Your Name">
               </div>
-              <div class="error">
-                Please enter your name.
+
+              <div class="form-group">
+                <label class="email-label" for="frmEmail">Email</label>
+                <input type="email" class="form-control" name="email" id="frmEmail" placeholder="name@example.com" autocomplete="on">
               </div>
-              <div class="icon">
-                <label class="cd-label" for="frmEmail">Email</label>
-                <input class="user" type="email" name="email" id="frmEmail" placeholder="name@example.com" required autocomplete="email">
-              </div>
-              <div class="error">
-                Please enter your email.
-              </div>
-              <div class="icon">
+
+              <div class="form-group">
                 <label class="cd-label" for="frmPhoneNum">Phone Number</label>
-                <input class="user" type="tel" name="phone" id="frmPhoneNum" placeholder="+1-444-444-1234" required autocomplete="tel">
+                <input type="tel" class="form-control" name="phone" id="frmPhoneNum" placeholder="444-444-1234" autocomplete="on">
               </div>
-              <div class="error">
-                Please enter your phone number.
-              </div>
+
               <div class="icon">
                 <p>Message</p>
-                <textarea placeholder="Your Message.." id="message" maxlength=500 name="ctrlMessage" rows="10" required></textarea>
+                <textarea placeholder="Your Message.." class="form-control" id="message" maxlength=500 name="ctrlMessage" rows="10" required></textarea>
               </div>
             </fieldset>
             <button type="submit">Send Message</button>
           </form>
         </div>
         <aside class="contact-details col-xs-12 col-md-6">
-          <hgroup>
+          <div class="hgroup">
             <h4>Contact Details</h4>
-          </hgroup>
+          </div>
           <p>Indoctum explicari sed et, aliquando repudiandae liberavisse quo id. Et ius vero erant debitis. Vix solum mollis iuvaret ad, illud ponderum ea sed, et elitr vulputate mea.</p>
           <p>Lorem ipsum dolor sit amet, no nam aliquid vivendo, ei quod summo gubergren eum.</p>
           <ul>
@@ -574,33 +567,6 @@
             <li><i class="fa fa-linkedin fa-2x"></i><a href="#">World</a></li>
           </ul>
         </aside>
-      </div>
-    </div>
-
-
-    /* bootstrap form */
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <form class="form-horizontal">
-            <div class="control-group">
-              <label for="exampleInputEmail1" class="control-label">Email address</label>
-              <div class="controls">
-                <input type="email" name="emaill" id="exampleInputEmail1" placeholder="Enter email" minlength="1">
-                <p class="help-block"></p>
-              </div>
-            </div>
-            <div class="control-group">
-              <label for="exampleInputPassword1" class="control-label">Password</label>
-              <div class="controls">
-                <input type="password" id="exampleInputPassword1" name="password" placeholder="Password" minlength="6">
-                <p class="help-block"></p>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-        </div>
       </div>
     </div>
   </section>
@@ -642,13 +608,13 @@
             </button>
           </div>
 
-          <hgroup>
+          <div class="hgroup">
             <h2>Enterprise Dashboard</h2>
 
             <div class="header-description">
               <h4>All the Bootstraps</h4>
             </div>
-          </hgroup>
+          </div>
         </div>
 
         <div class="modal-body">
@@ -703,13 +669,13 @@
             </button>
           </div>
 
-          <hgroup>
+          <div class="hgroup">
             <h2>Project 2</h2>
 
             <div class="header-description">
               <h4>Everything and more.</h4>
             </div>
-          </hgroup>
+          </div>
         </div>
 
         <div class="modal-body">
@@ -764,13 +730,13 @@
             </button>
           </div>
 
-          <hgroup>
+          <div class="hgroup">
             <h2>Project 3</h2>
 
             <div class="header-description">
               <h4>Everything and more.</h4>
             </div>
-          </hgroup>
+          </div>
         </div>
 
         <div class="modal-body">
@@ -820,7 +786,7 @@
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
   <script src="bower_components/jquery.easing/js/jquery.easing.min.js"></script>
   <script src="bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
-  <script src="bower_components/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.min.js"></script>
+  <script src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
   <script src="scripts/custom.js"></script>
 </body>
 
