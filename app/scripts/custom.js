@@ -1,9 +1,7 @@
-console.log("hello");
 / * Fix autofocus in Bootstrap modal */
 $('#myModal').on('shown.bs.modal', function() {
   $('#myInput').focus()
 })
-
 
 ﻿
 var animateHeader = (function() {
@@ -30,7 +28,7 @@ var animateHeader = (function() {
         header.className = header.className + " header-shrink";
       }
     } else {
-      header.className = header.className.replace("header-shrink", "");
+      header.className = header.className.replace("header-shrink", "").trim();
     }
     didScroll = false;
 
@@ -67,11 +65,6 @@ jQuery(document).ready(function($) {
       }
     });
   });
-
-});
-
-
-window.onload = function() {
 
   jQuery.validator.addMethod("phoneno", function(value, element) {
     // allow any non-whitespace characters as the host part
@@ -115,6 +108,7 @@ window.onload = function() {
   CounterAnimate.prototype.checkPos = function() {
     var windowOffset = window.pageYOffset;
     var windowHeight = window.innerHeight;
+    //
     if (typeof this.element === "object") {
       var elementTop = this.element.getBoundingClientRect().top;
     } else {
@@ -122,7 +116,6 @@ window.onload = function() {
     }
 
     if ((elementTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
-      console.log("Element top: " + elementTop + "\n Window Height: " + windowHeight + "\n Window offset: " + windowOffset);
       return true;
     }
 
@@ -141,7 +134,7 @@ window.onload = function() {
     if (this.checkPos()) {
       this.intervalId = window.setInterval(function() {
         self.frame();
-      }, 500);
+      }, 700);
     }
   }
 
@@ -163,28 +156,6 @@ window.onload = function() {
 
   window.onscroll = numberAnimation;
 
-
-  // Todo: try different easings for chart
-  // Todo: move code and tie to an onscroll event
-  /*
-   $('.chart').easyPieChart({
-        animate: 2000,
-        trackColor:'#e1e1e3',
-        //scaleColor: '#e1e1e3',
-        lineWidth: 15,
-        easing: "easeOutBounce",
-        barColor: '#2196F3',
-        scaleLength: 0,
-        size: 152,
-        //rotate: 0,
-
-        onStep: function(from, to, currentValue)
-        {
-          $(this.el).find('span').text(Math.round(currentValue) + '%');
-        }
-
-    });
-  */
   $charts = $('.chart');
   $(window).on('scroll', function() {
     $charts.each(function() {
@@ -210,6 +181,4 @@ window.onload = function() {
   });
 
 
-
-
-}
+});

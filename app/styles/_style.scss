@@ -274,7 +274,8 @@ nav {
     border-radius: 7pt;
     text-transform: uppercase;
   }
-  article h2 {
+
+  h2 {
     text-align: left;
   }
 }
@@ -321,7 +322,8 @@ nav {
       text-align: center;
       span {
         display: inline-block;
-        font-size: 21px;
+
+        @include font-size(21px);
         z-index: 2;
         position: relative;
         top: 55px;
@@ -549,6 +551,12 @@ nav {
 #contact {
   border-top: 20px solid $color-a3;
   background-color: $color-4;
+  .contact-details {
+    padding-top: 15px;
+  }
+  .form {
+    padding-bottom: 15px;
+  }
   .hgroup {
     text-align: center;
   }
@@ -573,6 +581,7 @@ nav {
   aside {
     .hgroup {
       padding-bottom: 15px;
+      text-align: left;
       h4 {
         border-bottom: 6px solid $color-a3;
         display: inline-block;
@@ -586,7 +595,7 @@ nav {
   }
   textarea {
     background-color: rgba(0,0,0,0.12);
-    
+
     padding: 10px;
   }
   button {
@@ -660,7 +669,7 @@ nav {
     color: #3c763d;
   }
 }
-/* Footer */
+/* 11. Footer */
 footer {
   background-color: $color-2;
   .container {
@@ -777,7 +786,14 @@ footer {
   .intro-text {
     padding: 300px 0;
   }
-  navbar {
+  .header-shrink {
+    padding: 10px 0;
+    background-color: $color-1;
+    box-shadow: 0 7px 16px 0 rgba(50, 50, 50, 0.3);
+  }
 
+  .modal-dialog
+  {
+    width: 100%;
   }
 }
