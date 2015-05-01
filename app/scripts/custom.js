@@ -1,11 +1,11 @@
-/ * Fix autofocus in Bootstrap modal */
+// Fix autofocus in Bootstrap modal 
 $('#myModal').on('shown.bs.modal', function() {
-  $('#myInput').focus()
-})
+ 'use strict';
+  $('#myInput').focus();
+});
 
-﻿
-var animateHeader = (function() {
-
+ (function() {
+  'use strict';
   var docElem = document.documentElement,
     header = document.querySelector('.navbar-fixed-top'),
     didScroll = false,
@@ -24,11 +24,11 @@ var animateHeader = (function() {
   function scrollPage() {
     var sy = scrollY();
     if (sy >= changeHeaderOn) {
-      if (header.className.search("header-shrink") == -1) {
-        header.className = header.className + " header-shrink";
+      if (header.className.search('header-shrink') === -1) {
+        header.className = header.className + ' header-shrink';
       }
     } else {
-      header.className = header.className.replace("header-shrink", "").trim();
+      header.className = header.className.replace('header-shrink', '').trim();
     }
     didScroll = false;
 
@@ -36,7 +36,7 @@ var animateHeader = (function() {
 
   function scrollY() {
     // docElem.scrollTop for IE8 and below
-    return window.pageYOffset || document.documentElement.scrollTop;
+    return window.pageYOffset || docElem.scrollTop;
   }
 
   init();
@@ -44,12 +44,13 @@ var animateHeader = (function() {
 })();
 
 jQuery(document).ready(function($) {
-
+  
   // http://codyhouse.co/gem/vertical-timeline/ Guideline for building timeline
   var $timeline_block = $('.job-timeline-block');
 
   //hide timeline blocks which are outside the viewport
   $timeline_block.each(function() {
+    'use strict';
     if ($(this).offset().top > $(window).scrollTop() + $(window).height() * 0.75) {
       $(this).find('.resume-timeline-date, .resume-content').addClass('is-hidden');
     }
@@ -58,7 +59,7 @@ jQuery(document).ready(function($) {
 
   //on scolling, show/animate timeline blocks when enter the viewport
   $(window).on('scroll', function() {
-
+    'use strict';
     $timeline_block.each(function() {
       if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.75 && $(this).find('.resume-timeline-date').hasClass('is-hidden')) {
         $(this).find('.resume-timeline-date, .resume-content').removeClass('is-hidden').addClass('bounce-in');
@@ -66,12 +67,13 @@ jQuery(document).ready(function($) {
     });
   });
 
-  jQuery.validator.addMethod("phoneno", function(value, element) {
+  jQuery.validator.addMethod('phoneno', function(value, element) {
+    'use strict';
     // allow any non-whitespace characters as the host part
     return this.optional( element ) || /^\(?[0-9]{3}(\-|\)) ?[0-9]{3}-[0-9]{4}$/.test( value );
   }, 'Please enter a valid phone number.');
 
-  $("#contactForm").validate({
+  $('#contactForm').validate({
     debug: true,
     rules: {
       name: {
@@ -91,52 +93,56 @@ jQuery(document).ready(function($) {
 
     },
     submitHandler: function() {
-      console.log("Submit successful!!");
-      alert("Thanks for submitting!!");
+      'use strict';
+      console.log('Submit successful!!');
+      alert('Thanks for submitting!!');
     }
   });
 
   function CounterAnimate(element) {
-    //  'use strict';
+    'use strict';
     this.element = document.getElementById(element);
     this.elementEndingNumber = !isNaN(this.element.textContent) ? parseInt(this.element.textContent) : console.log('Lucky Number is NaN');
     this.elementCounter = 0;
-    this.intervalId;
-
+    this.intervalId = 0;
   }
 
   CounterAnimate.prototype.checkPos = function() {
+    'use strict';
     var windowOffset = window.pageYOffset;
     var windowHeight = window.innerHeight;
     //
-    if (typeof this.element === "object") {
-      var elementTop = this.element.getBoundingClientRect().top;
+    var elementTop = 0;
+    if (typeof this.element === 'object') {
+      elementTop = this.element.getBoundingClientRect().top;
     } else {
-      var elementTop = this.getBoundingClientRect().top;
+      elementTop = this.getBoundingClientRect().top;
     }
 
     if ((elementTop + windowOffset) <= windowOffset + (windowHeight * 0.75)) {
       return true;
     }
 
-  }
+  };
 
   CounterAnimate.prototype.frame = function() {
+    'use strict';
     if (this.elementCounter > this.elementEndingNumber) {
       window.clearInterval(this.intervalId);
     } else {
       this.element.textContent = this.elementCounter++;
     }
-  }
+  };
 
   CounterAnimate.prototype.play = function() {
+    'use strict';
     var self = this;
     if (this.checkPos()) {
       this.intervalId = window.setInterval(function() {
         self.frame();
       }, 700);
     }
-  }
+  };
 
 
 
@@ -148,11 +154,12 @@ jQuery(document).ready(function($) {
 
 
   var numberAnimation = function() {
+    'use strict';
     console.log('scrolling...');
     coffeeNumberAnimation.play();
     musicNumberAnimation.play();
     luckyNumberAnimation.play();
-  }
+  };
 
   window.onscroll = numberAnimation;
 
@@ -165,7 +172,7 @@ jQuery(document).ready(function($) {
           trackColor: '#e1e1e3',
           //scaleColor: '#e1e1e3',
           lineWidth: 15,
-          easing: "easeOutBounce",
+          easing: 'easeOutBounce',
           barColor: '#2196F3',
           scaleLength: 0,
           size: 152,

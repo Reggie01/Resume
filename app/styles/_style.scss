@@ -141,9 +141,6 @@ section {
   }
 }
 .navbar-default .navbar-toggle {
-  // Todo: remove
-  // border-color: #13B0A5;
-  // background-color: #13B0A5;
   background-color: $color-1;
   border-color: transparent;
 }
@@ -279,7 +276,7 @@ nav {
     text-align: left;
   }
 }
-/* Status */
+/* Counter */
 #counter {
   background-image: url("../images/bg-portfolio.jpg");
   color: $white-main;
@@ -298,7 +295,6 @@ nav {
 /* 6. Skills */
 #skills {
   text-align: center;
-  // Todo: fixing section padding
   background-color: $color-4;
   .skills-header h1 {
     border-bottom: 6px solid #13b0a5;
@@ -763,7 +759,6 @@ footer {
   }
 }
 /* 14. Media Queries */
-/* Todo: Add media queries for header-shrink?? */
 @media(min-width: 768px) {
   .navbar-default {
     padding: 25px;
